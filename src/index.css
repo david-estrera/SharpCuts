@@ -12,6 +12,27 @@ body {
   color: #f5f0e6;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  /* Ensure touch targets are at least 44x44px */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent text size adjustment on iOS */
+  input, textarea, select {
+    font-size: 16px;
+  }
+  
+  /* Improve scrolling on mobile */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Barber pole stripes pattern */
@@ -112,7 +133,8 @@ body {
 
 /* Tab buttons */
 .tab-button {
-  @apply px-6 py-3 font-display text-xl tracking-wide transition-all duration-300;
+  @apply px-4 md:px-6 py-3 font-display text-base md:text-xl tracking-wide transition-all duration-300;
+  min-height: 44px; /* Touch target size */
 }
 
 .tab-button.active {

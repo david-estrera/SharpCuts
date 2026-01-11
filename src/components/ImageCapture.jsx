@@ -98,7 +98,7 @@ export default function ImageCapture({ onCapture }) {
           </button>
         </div>
 
-        <div className="p-8">
+        <div className="p-4 sm:p-6 md:p-8">
           <AnimatePresence mode="wait">
             {previewUrl ? (
               <motion.div
@@ -106,7 +106,7 @@ export default function ImageCapture({ onCapture }) {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="space-y-6"
+                className="space-y-4 md:space-y-6"
               >
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-gold/30">
                   <img 
@@ -115,12 +115,12 @@ export default function ImageCapture({ onCapture }) {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                   <motion.button
                     onClick={handleRetake}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex-1 py-3 border-2 border-cream/30 text-cream font-display text-lg tracking-wide rounded hover:border-gold hover:text-gold transition-all"
+                    className="flex-1 py-3 border-2 border-cream/30 text-cream font-display text-base md:text-lg tracking-wide rounded hover:border-gold hover:text-gold transition-all"
                   >
                     RETAKE
                   </motion.button>
@@ -128,7 +128,7 @@ export default function ImageCapture({ onCapture }) {
                     onClick={handleConfirm}
                     whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(201, 162, 39, 0.5)' }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex-1 py-3 bg-gold text-charcoal font-display text-lg tracking-wide rounded hover:bg-gold-dark transition-all gold-glow"
+                    className="flex-1 py-3 bg-gold text-charcoal font-display text-base md:text-lg tracking-wide rounded hover:bg-gold-dark transition-all gold-glow"
                   >
                     USE THIS PHOTO
                   </motion.button>
@@ -186,12 +186,12 @@ export default function ImageCapture({ onCapture }) {
                     </motion.div>
                     <div>
                       <motion.p 
-                        className="font-display text-2xl text-cream mb-2"
+                        className="font-display text-xl md:text-2xl text-cream mb-2 px-2"
                         animate={{ scale: isDragging ? 1.05 : 1 }}
                       >
                         {isDragging ? 'DROP IT HERE!' : 'DROP YOUR PHOTO HERE'}
                       </motion.p>
-                      <p className="font-body text-cream/60">or click to browse your files</p>
+                      <p className="font-body text-sm md:text-base text-cream/60">or click to browse your files</p>
                     </div>
                     <motion.p 
                       className="text-sm text-cream/40 font-body"
@@ -236,10 +236,10 @@ export default function ImageCapture({ onCapture }) {
                   onClick={captureWebcam}
                   whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(201, 162, 39, 0.5)' }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 bg-gold text-charcoal font-display text-xl tracking-wide rounded hover:bg-gold-dark transition-all gold-glow flex items-center justify-center gap-3"
+                  className="w-full py-3 md:py-4 bg-gold text-charcoal font-display text-lg md:text-xl tracking-wide rounded hover:bg-gold-dark transition-all gold-glow flex items-center justify-center gap-3"
                 >
                   <motion.svg 
-                    className="w-6 h-6" 
+                    className="w-5 h-5 md:w-6 md:h-6" 
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"
@@ -251,7 +251,7 @@ export default function ImageCapture({ onCapture }) {
                   </motion.svg>
                   CAPTURE PHOTO
                 </motion.button>
-                <p className="text-center text-cream/50 font-body text-sm">
+                <p className="text-center text-cream/50 font-body text-xs md:text-sm px-2">
                   Position your face within the oval guide for best results
                 </p>
               </motion.div>
@@ -265,25 +265,25 @@ export default function ImageCapture({ onCapture }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="mt-8 p-6 border border-gold/20 rounded-lg bg-charcoal-light/50"
+        className="mt-6 md:mt-8 p-4 md:p-6 border border-gold/20 rounded-lg bg-charcoal-light/50"
       >
-        <h3 className="font-display text-xl text-gold mb-3">TIPS FOR BEST RESULTS</h3>
-        <ul className="space-y-2 font-body text-cream/70">
+        <h3 className="font-display text-lg md:text-xl text-gold mb-3">TIPS FOR BEST RESULTS</h3>
+        <ul className="space-y-2 font-body text-sm md:text-base text-cream/70">
           <li className="flex items-start gap-2">
-            <span className="text-gold">•</span>
-            Face the camera directly with a neutral expression
+            <span className="text-gold flex-shrink-0">•</span>
+            <span>Face the camera directly with a neutral expression</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-gold">•</span>
-            Ensure good, even lighting on your face
+            <span className="text-gold flex-shrink-0">•</span>
+            <span>Ensure good, even lighting on your face</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-gold">•</span>
-            Pull back hair from your forehead and jawline
+            <span className="text-gold flex-shrink-0">•</span>
+            <span>Pull back hair from your forehead and jawline</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-gold">•</span>
-            Remove glasses or accessories that obscure your face
+            <span className="text-gold flex-shrink-0">•</span>
+            <span>Remove glasses or accessories that obscure your face</span>
           </li>
         </ul>
       </motion.div>
