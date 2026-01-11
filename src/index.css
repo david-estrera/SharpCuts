@@ -1,0 +1,375 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background-color: #1a1a1a;
+  color: #f5f0e6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Barber pole stripes pattern */
+.barber-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(201, 162, 39, 0.05) 10px,
+    rgba(201, 162, 39, 0.05) 20px
+  );
+}
+
+/* Gold underline decoration */
+.gold-underline {
+  position: relative;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #c9a227, #a68520);
+}
+
+/* Barber pole loading animation */
+@keyframes barber-pole {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+.barber-pole-animate {
+  background: repeating-linear-gradient(
+    45deg,
+    #c9a227,
+    #c9a227 10px,
+    #6b1c23 10px,
+    #6b1c23 20px,
+    #f5f0e6 20px,
+    #f5f0e6 30px
+  );
+  background-size: 60px 60px;
+  animation: barber-pole 1s linear infinite;
+}
+
+/* Glow effects */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(201, 162, 39, 0.5);
+}
+
+/* Card styling */
+.card-elevated {
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9a227;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a68520;
+}
+
+/* Pinstripe pattern for background */
+.pinstripe-bg {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 1px,
+    rgba(201, 162, 39, 0.03) 1px,
+    rgba(201, 162, 39, 0.03) 2px
+  );
+  background-size: 20px 100%;
+}
+
+/* Tab buttons */
+.tab-button {
+  @apply px-6 py-3 font-display text-xl tracking-wide transition-all duration-300;
+}
+
+.tab-button.active {
+  @apply text-gold border-b-2 border-gold;
+}
+
+.tab-button:not(.active) {
+  @apply text-cream/50 hover:text-cream/80;
+}
+
+/* Drop zone styling */
+.drop-zone {
+  @apply border-2 border-dashed border-gold/30 rounded-lg p-12 text-center transition-all duration-300;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-over {
+  @apply border-gold bg-gold/5;
+}
+
+/* Webcam container */
+.webcam-container {
+  @apply relative rounded-lg overflow-hidden;
+  aspect-ratio: 4/3;
+}
+
+/* Result badge */
+.face-shape-badge {
+  @apply inline-flex items-center px-6 py-2 rounded-full font-display text-2xl tracking-wider;
+  background: linear-gradient(135deg, #c9a227 0%, #a68520 100%);
+  color: #1a1a1a;
+}
+
+/* Haircut card */
+.haircut-card {
+  @apply rounded-lg overflow-hidden transition-transform duration-300;
+}
+
+.haircut-card:hover {
+  @apply transform scale-105;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(201, 162, 39, 0.3);
+}
+
+/* Smooth transitions for all interactive elements */
+button, a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pulse animation for attention */
+@keyframes pulse-gold {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(201, 162, 39, 0);
+  }
+}
+
+.pulse-gold {
+  animation: pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Slide in from sides */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 162, 39, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Glow pulse */
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(201, 162, 39, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.8));
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #c9a227;
+  outline-offset: 2px;
+}
+
+/* Image loading fade */
+img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Card hover lift effect */
+.card-elevated {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-elevated:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Text gradient animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-gradient-animated {
+  background: linear-gradient(
+    90deg,
+    #f5f0e6 0%,
+    #c9a227 50%,
+    #f5f0e6 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s linear infinite;
+}
+
+/* Loading dots animation */
+@keyframes loading-dots {
+  0%, 20% {
+    content: '.';
+  }
+  40% {
+    content: '..';
+  }
+  60%, 100% {
+    content: '...';
+  }
+}
+
+/* Smooth backdrop blur transition */
+.backdrop-blur-sm {
+  transition: backdrop-filter 0.3s ease;
+}
+
+/* Enhanced gold glow */
+.gold-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.gold-glow:hover {
+  box-shadow: 0 0 30px rgba(201, 162, 39, 0.6);
+}
+
+/* Tab transition */
+.tab-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 162, 39, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.tab-button:hover::before {
+  left: 100%;
+}
+
