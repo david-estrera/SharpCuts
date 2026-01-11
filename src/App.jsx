@@ -39,7 +39,7 @@ function App() {
         <Hero />
         <HowItWorks />
         
-        <section id="analyzer" className="py-20 px-4">
+        <section id="analyzer" className="py-12 md:py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <AnimatePresence mode="wait">
               {!capturedImage && (
@@ -50,10 +50,10 @@ function App() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <h2 className="font-display text-5xl md:text-6xl text-cream text-center mb-4">
+                  <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream text-center mb-3 md:mb-4 px-2">
                     DISCOVER YOUR LOOK
                   </h2>
-                  <p className="text-cream/70 text-center mb-12 max-w-2xl mx-auto font-body text-lg">
+                  <p className="text-cream/70 text-center mb-8 md:mb-12 max-w-2xl mx-auto font-body text-base md:text-lg px-4">
                     Upload a photo or use your camera to analyze your face shape and get personalized haircut recommendations
                   </p>
                 </motion.div>

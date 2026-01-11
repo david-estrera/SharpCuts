@@ -46,25 +46,25 @@ export default function HowItWorks() {
   ]
 
   return (
-    <section id="how-it-works" className="py-20 px-4 bg-charcoal-light/30">
+    <section id="how-it-works" className="py-12 md:py-20 px-4 bg-charcoal-light/30">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
-          <h2 className="font-display text-5xl md:text-6xl text-cream mb-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream mb-3 md:mb-4">
             HOW IT <span className="text-gold">WORKS</span>
           </h2>
-          <p className="text-cream/70 font-body text-lg max-w-2xl mx-auto">
+          <p className="text-cream/70 font-body text-base md:text-lg max-w-2xl mx-auto px-4">
             Our AI-powered system makes finding your perfect haircut simple and accurate
           </p>
         </motion.div>
 
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -74,15 +74,15 @@ export default function HowItWorks() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="card-elevated rounded-xl p-8 h-full flex flex-col items-center text-center hover:transform hover:scale-105 transition-all duration-300 relative z-10">
+                <div className="card-elevated rounded-xl p-6 md:p-8 h-full flex flex-col items-center text-center hover:transform hover:scale-105 transition-all duration-300 relative z-10">
                   {/* Step number */}
-                  <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-gold flex items-center justify-center shadow-lg z-20">
-                    <span className="font-display text-2xl text-charcoal">{step.number}</span>
+                  <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-gold flex items-center justify-center shadow-lg z-20">
+                    <span className="font-display text-xl md:text-2xl text-charcoal">{step.number}</span>
                   </div>
 
                   {/* Icon */}
                   <motion.div
-                    className="text-gold mb-6"
+                    className="text-gold mb-4 md:mb-6"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
@@ -90,10 +90,10 @@ export default function HowItWorks() {
                   </motion.div>
 
                   {/* Content */}
-                  <h3 className="font-display text-2xl text-cream mb-4">
+                  <h3 className="font-display text-xl md:text-2xl text-cream mb-3 md:mb-4">
                     {step.title}
                   </h3>
-                  <p className="font-body text-cream/70 text-sm leading-relaxed">
+                  <p className="font-body text-cream/70 text-xs md:text-sm leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -149,21 +149,21 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-16 p-8 border border-gold/20 rounded-xl bg-charcoal-light/50"
+          className="mt-8 md:mt-16 p-6 md:p-8 border border-gold/20 rounded-xl bg-charcoal-light/50"
         >
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
             <div>
-              <div className="text-4xl font-display text-gold mb-2">100%</div>
+              <div className="text-3xl md:text-4xl font-display text-gold mb-2">100%</div>
               <p className="font-body text-cream/70 text-sm">Privacy Protected</p>
               <p className="font-body text-cream/50 text-xs mt-1">All processing happens locally in your browser</p>
             </div>
             <div>
-              <div className="text-4xl font-display text-gold mb-2">AI</div>
+              <div className="text-3xl md:text-4xl font-display text-gold mb-2">AI</div>
               <p className="font-body text-cream/70 text-sm">Powered Analysis</p>
               <p className="font-body text-cream/50 text-xs mt-1">Advanced machine learning algorithms</p>
             </div>
             <div>
-              <div className="text-4xl font-display text-gold mb-2">Free</div>
+              <div className="text-3xl md:text-4xl font-display text-gold mb-2">Free</div>
               <p className="font-body text-cream/70 text-sm">To Use</p>
               <p className="font-body text-cream/50 text-xs mt-1">No sign-up required, no hidden fees</p>
             </div>

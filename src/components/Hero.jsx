@@ -15,7 +15,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="inline-block px-4 py-1 mb-6 text-sm font-body text-gold border border-gold/30 rounded-full">
+          <span className="inline-block px-3 py-1 mb-4 md:mb-6 text-xs sm:text-sm font-body text-gold border border-gold/30 rounded-full">
             AI-POWERED HAIRCUT RECOMMENDATIONS
           </span>
         </motion.div>
@@ -24,7 +24,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-display text-7xl md:text-9xl text-cream leading-none mb-6"
+          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-cream leading-tight md:leading-none mb-4 md:mb-6 px-2"
         >
           FIND YOUR
           <br />
@@ -35,7 +35,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-body text-xl text-cream/70 max-w-2xl mx-auto mb-10"
+          className="font-body text-base sm:text-lg md:text-xl text-cream/70 max-w-2xl mx-auto mb-8 md:mb-10 px-4"
         >
           Discover which hairstyles complement your unique face shape. Our AI analyzes your features 
           and recommends cuts that will make you look your absolute best.
@@ -55,7 +55,7 @@ export default function Hero() {
             }}
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(201, 162, 39, 0.6)' }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gold text-charcoal font-display text-xl tracking-wide rounded gold-glow hover:bg-gold-dark transition-all duration-300"
+            className="px-6 py-3 md:px-8 md:py-4 bg-gold text-charcoal font-display text-lg md:text-xl tracking-wide rounded gold-glow hover:bg-gold-dark transition-all duration-300 w-full sm:w-auto"
           >
             ANALYZE MY FACE
           </motion.a>
@@ -67,7 +67,7 @@ export default function Hero() {
             }}
             whileHover={{ scale: 1.05, borderColor: 'rgba(201, 162, 39, 0.8)' }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border-2 border-cream/30 text-cream font-display text-xl tracking-wide rounded hover:border-gold hover:text-gold transition-all duration-300"
+            className="px-6 py-3 md:px-8 md:py-4 border-2 border-cream/30 text-cream font-display text-lg md:text-xl tracking-wide rounded hover:border-gold hover:text-gold transition-all duration-300 w-full sm:w-auto"
           >
             HOW IT WORKS
           </motion.a>
@@ -78,37 +78,37 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="mt-12 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-4"
         >
           <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-charcoal-light border border-gold/30 flex items-center justify-center">
-              <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 rounded-full bg-charcoal-light border border-gold/30 flex items-center justify-center">
+              <svg className="w-7 h-7 md:w-8 md:h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h3 className="font-display text-2xl text-cream mb-2">SNAP A PHOTO</h3>
-            <p className="font-body text-cream/60">Upload or capture your photo using your device camera</p>
+            <h3 className="font-display text-xl md:text-2xl text-cream mb-2">SNAP A PHOTO</h3>
+            <p className="font-body text-sm md:text-base text-cream/60 px-2">Upload or capture your photo using your device camera</p>
           </div>
 
           <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-charcoal-light border border-gold/30 flex items-center justify-center">
-              <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 rounded-full bg-charcoal-light border border-gold/30 flex items-center justify-center">
+              <svg className="w-7 h-7 md:w-8 md:h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 className="font-display text-2xl text-cream mb-2">AI ANALYSIS</h3>
-            <p className="font-body text-cream/60">Our AI detects your face shape with advanced neural networks</p>
+            <h3 className="font-display text-xl md:text-2xl text-cream mb-2">AI ANALYSIS</h3>
+            <p className="font-body text-sm md:text-base text-cream/60 px-2">Our AI detects your face shape with advanced neural networks</p>
           </div>
 
           <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-charcoal-light border border-gold/30 flex items-center justify-center">
-              <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 rounded-full bg-charcoal-light border border-gold/30 flex items-center justify-center">
+              <svg className="w-7 h-7 md:w-8 md:h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
               </svg>
             </div>
-            <h3 className="font-display text-2xl text-cream mb-2">GET STYLED</h3>
-            <p className="font-body text-cream/60">Receive personalized haircut recommendations that suit you</p>
+            <h3 className="font-display text-xl md:text-2xl text-cream mb-2">GET STYLED</h3>
+            <p className="font-body text-sm md:text-base text-cream/60 px-2">Receive personalized haircut recommendations that suit you</p>
           </div>
         </motion.div>
       </div>
