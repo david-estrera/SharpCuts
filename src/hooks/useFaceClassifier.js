@@ -11,11 +11,21 @@ export function useFaceClassifier() {
     setIsLoading(true)
     setError(null)
 
+    // Log API URL for debugging
+    console.log('API_URL:', API_URL)
+    console.log('Full classify URL:', `${API_URL}/classify`)
+
     try {
       console.log('Sending image to backend API for classification...')
       
+      // Ensure API_URL has protocol
+      const apiUrl = API_URL.startsWith('http') ? API_URL : `https://${API_URL}`
+      const fullUrl = `${apiUrl}/classify`
+      
+      console.log('Calling:', fullUrl)
+      
       // Call backend API
-      const response = await fetch(`${API_URL}/classify`, {
+      const response = await fetch(fullUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,18 +35,21 @@ export function useFaceClassifier() {
         })
       })
 
+      console.log('Response status:', response.status, response.statusText)
+
       if (!response.ok) {
-        throw new Error(`API error: ${response.status} ${response.statusText}`)
+        const errorText = await response.text()
+        console.error('API error response:', errorText)
+        throw new Error(`API error: ${response.status} ${response.statusText} - ${errorText}`)
       }
 
       const result = await response.json()
+      console.log('Classification result:', result)
       
       if (result.error) {
         throw new Error(result.error)
       }
 
-      console.log('Classification result:', result)
-      
       return {
         faceShape: result.faceShape,
         confidence: result.confidence,
@@ -45,11 +58,16 @@ export function useFaceClassifier() {
       }
     } catch (err) {
       console.error('Classification error:', err)
+      console.error('Error details:', {
+        message: err.message,
+        name: err.name,
+        stack: err.stack
+      })
       setError(err.message || 'Failed to classify image')
       
       // Check if it's a network error (backend not running)
-      if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
-        setError('Backend API not available. Please start the backend server.')
+      if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError') || err.name === 'TypeError') {
+        setError(`Backend API not available. Check if ${API_URL} is accessible.`)
       }
       
       // Fallback: Return a mock result for demo purposes if API fails

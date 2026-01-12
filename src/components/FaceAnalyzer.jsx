@@ -22,29 +22,55 @@ export default function FaceAnalyzer({
   }, [isAnalyzing])
 
   const performAnalysis = async () => {
-    // Simulate progress updates
+    // Simulate progress updates - faster initial progress
     const progressInterval = setInterval(() => {
       setAnalysisProgress(prev => {
-        if (prev >= 90) {
-          clearInterval(progressInterval)
-          return prev
+        if (prev >= 85) {
+          // Slow down near the end, but continue to 95%
+          if (prev >= 95) {
+            clearInterval(progressInterval)
+            return prev
+          }
+          return prev + 1
         }
         return prev + 10
       })
     }, 200)
 
-    const result = await classify(image)
+    // Start API call
+    const classifyPromise = classify(image)
     
-    clearInterval(progressInterval)
-    setAnalysisProgress(100)
-    
-    // Small delay to show 100% before transitioning
-    setTimeout(() => {
-      if (result) {
-        onAnalysisComplete(result)
-      }
-      setAnalysisProgress(0)
-    }, 300)
+    // Continue progress slowly while waiting for API
+    const slowProgressInterval = setInterval(() => {
+      setAnalysisProgress(prev => {
+        if (prev >= 98) {
+          clearInterval(slowProgressInterval)
+          return prev
+        }
+        return prev + 0.5
+      })
+    }, 500)
+
+    try {
+      const result = await classifyPromise
+      
+      clearInterval(progressInterval)
+      clearInterval(slowProgressInterval)
+      setAnalysisProgress(100)
+      
+      // Small delay to show 100% before transitioning
+      setTimeout(() => {
+        if (result) {
+          onAnalysisComplete(result)
+        }
+        setAnalysisProgress(0)
+      }, 300)
+    } catch (error) {
+      clearInterval(progressInterval)
+      clearInterval(slowProgressInterval)
+      setAnalysisProgress(100)
+      // Error handling is done in classify function
+    }
   }
 
   return (
