@@ -76,6 +76,7 @@ function App() {
                 <ResultsPanel 
                   key="results"
                   result={analysisResult}
+                  uploadedImage={capturedImage}
                   onReset={handleReset}
                 />
               )}

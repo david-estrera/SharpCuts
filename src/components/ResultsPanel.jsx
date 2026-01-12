@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import HaircutCard from './HaircutCard'
 import { getRecommendations, faceShapeInfo } from '../data/haircuts'
 
-export default function ResultsPanel({ result, onReset }) {
+export default function ResultsPanel({ result, uploadedImage, onReset }) {
   const { faceShape, confidence, allResults, isFallback } = result
   const recommendations = getRecommendations(faceShape)
   const shapeInfo = faceShapeInfo[faceShape] || faceShapeInfo['Oval']
@@ -14,6 +14,26 @@ export default function ResultsPanel({ result, onReset }) {
       transition={{ duration: 0.5 }}
       className="space-y-8 md:space-y-12"
     >
+      {/* Uploaded photo display */}
+      {uploadedImage && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1 }}
+          className="max-w-md mx-auto mb-6 md:mb-8"
+        >
+          <h3 className="font-display text-xl md:text-2xl text-cream text-center mb-4">YOUR PHOTO</h3>
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-gold/30 shadow-lg">
+            <img 
+              src={uploadedImage} 
+              alt="Your uploaded photo" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent pointer-events-none" />
+          </div>
+        </motion.div>
+      )}
+
       {/* Result header */}
       <div className="text-center px-2">
         <motion.div
